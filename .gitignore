@@ -1,0 +1,28 @@
+# Operating system / editors
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.tmp
+
+# Local tooling and caches
+node_modules/
+.cache/
+dist/
+coverage/
+*.log
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local previews
+screenshots/
+tmp/
+temp/
+
