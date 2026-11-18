@@ -49,14 +49,6 @@
           </h1>
         </div>
 
-        <div class="micro micro-left">
-          <button type="button" data-panel="work"><b>01</b><strong>OBJECT / SYSTEM</strong><span>Product Design</span></button>
-          <button type="button" data-panel="work"><b>02</b><strong>INTERFACE STUDY</strong><span>UI / UX</span></button>
-          <button type="button" data-panel="work"><b>03</b><strong>CULTURAL OBJECTS</strong><span>Cultural Product</span></button>
-          <button type="button" data-panel="work"><b>04</b><strong>VISUAL IDENTITY</strong><span>Graphic System</span></button>
-          <button type="button" data-panel="work"><b>05</b><strong>MATERIAL RESEARCH</strong><span>Experiment</span></button>
-        </div>
-
         <div class="micro micro-right">
           <span>PRODUCT</span>
           <span>INTERACTION</span>
@@ -195,10 +187,17 @@
           <span class="object-tag tag-culture">CULTURE</span>
         </div>
 
-        <button class="enter-work" type="button" data-panel="work">
-          <span>打开档案</span>
-          <b aria-hidden="true">↘</b>
-        </button>
+        <div class="cover-index" role="group" aria-label="首页作品选录">
+          <ul>
+            <li><button type="button" data-panel="work" data-project="product">OBJECT / SYSTEM, 2026 <span aria-hidden="true">↗</span></button></li>
+            <li><button type="button" data-panel="work" data-project="interface">INTERFACE STUDY, 2026 <span aria-hidden="true">↗</span></button></li>
+            <li><button type="button" data-panel="work" data-project="culture">CULTURAL OBJECTS, 2026 <span aria-hidden="true">↗</span></button></li>
+          </ul>
+          <ul>
+            <li><button type="button" data-panel="work" data-project="identity">VISUAL IDENTITY <span aria-hidden="true">↗</span></button></li>
+            <li><button type="button" data-panel="work" data-project="research">MATERIAL RESEARCH <span aria-hidden="true">↗</span></button></li>
+          </ul>
+        </div>
 
         <div class="edition" aria-label="版本信息">
           <span>VOL. 01</span>

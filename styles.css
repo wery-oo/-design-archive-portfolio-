@@ -160,7 +160,6 @@ h1 span:last-child { text-align: right; }
   font: 500 10px/1.25 var(--mono);
   letter-spacing: .03em;
 }
-.micro-left { left: var(--page-pad); }
 .micro-right { right: var(--page-pad); text-align: right; }
 
 .archive-stage {
@@ -192,24 +191,37 @@ h1 span:last-child { text-align: right; }
 .tag-product { left: 41%; top: 35%; transform: rotate(-3deg); }
 .tag-culture { left: 16%; bottom: 20%; transform: rotate(5deg); }
 
-.enter-work {
+.cover-index {
   position: absolute;
   z-index: 6;
-  right: var(--page-pad);
-  bottom: 28px;
+  left: var(--page-pad);
+  bottom: clamp(26px, 7vh, 72px);
   display: grid;
-  grid-template-columns: auto 46px;
-  align-items: stretch;
-  border: 1px solid var(--ink);
-  padding: 0;
-  background: var(--paper);
-  cursor: pointer;
-  font: 700 13px/1 var(--body);
-  transition: background-color 160ms ease-out, color 160ms ease-out;
+  gap: clamp(22px, 3.5vh, 36px);
 }
-.enter-work span { padding: 15px 18px; }
-.enter-work b { display: grid; place-items: center; border-left: 1px solid currentColor; font-size: 18px; }
-.enter-work:hover { background: var(--ink); color: var(--paper); }
+
+.cover-index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cover-index button {
+  display: block;
+  min-height: 24px;
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: 700 clamp(13px, 1.05vw, 16px)/1.2 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -.025em;
+  text-align: left;
+}
+
+.cover-index button span { color: #747474; margin-inline-start: .14em; }
+.cover-index button:hover, .cover-index button:focus-visible { color: #0054d6; }
+.cover-index button:hover span, .cover-index button:focus-visible span { color: inherit; }
 
 .edition {
   position: absolute;
@@ -261,12 +273,7 @@ h1 small { padding-top:34px; font:500 clamp(20px,2.4vw,42px)/1 var(--body); lett
 .conveyor-belt::before { top:5px; }.conveyor-belt::after { bottom:5px; }
 .conveyor-belt i { position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.78),transparent 24%,transparent 76%,rgba(255,255,255,.78)); }
 .micro { top:auto; }
-.micro-left { left:var(--page-pad); bottom:18%; width:min(29vw,440px); gap:0; border-top:1px solid var(--ink); text-align:left; }
-.micro-left button { display:grid; grid-template-columns:42px 1fr 104px; align-items:center; min-height:50px; padding:0; border:0; border-bottom:1px solid rgba(11,12,11,.38); background:transparent; color:inherit; text-align:left; cursor:pointer; transition:padding-left 150ms ease-out; }
-.micro-left b,.micro-left span { font:500 9px/1 var(--mono); }.micro-left strong { font:700 clamp(13px,1.1vw,17px)/1 var(--body); letter-spacing:-.035em; }.micro-left button:hover strong { color:#1769ff; }.micro-left button:hover { padding-left:5px; }
 .micro-right { top:48%; right:var(--page-pad); display:grid; gap:2px; font:700 clamp(14px,1.25vw,20px)/1.35 var(--body); text-align:right; text-decoration:underline; text-underline-offset:4px; }
-.enter-work { left:var(--page-pad); right:auto; bottom:28px; }
-.enter-work span::before { content:"SELECTED WORKS / "; }
 .edition { left:auto; right:var(--page-pad); }
 .scan-a { top:auto; bottom:0; }.scan-b { bottom:auto; top:22%; }
 
@@ -281,11 +288,8 @@ h1 small { padding-top:34px; font:500 clamp(20px,2.4vw,42px)/1 var(--body); lett
   h1 { display:grid; grid-template-columns:1fr; gap:10px; font-size:clamp(68px,17vw,150px); line-height:.78; }
   h1 small { padding:0; justify-self:end; font-size:clamp(16px,3vw,24px); }
   .descriptor { margin-top: 18px; }
-  .micro-left { width:40vw; bottom:18%; }
-  .micro-left button { grid-template-columns:28px 1fr; }.micro-left button span { display:none; }
   .micro-right { display:none; }
   .archive-stage { width:min(88vw,820px); bottom:5vh; left:64%; }
-  .enter-work { bottom: 18px; }
   .edition { display: none; }
 }
 
@@ -297,13 +301,10 @@ h1 small { padding-top:34px; font:500 clamp(20px,2.4vw,42px)/1 var(--body); lett
   h1 { font-size:clamp(46px,13.8vw,64px); line-height:.8; }
   h1 small { justify-self:start; font-size:15px; }
   .descriptor { max-width: 15em; font-size: 10px; }
-  .micro-left { display:none; }
-  .archive-stage { width:118vw; left:50%; bottom:10vh; }
+  .cover-index { position:relative; left:auto; bottom:auto; gap:20px; width:max-content; }
+  .archive-stage { position:relative; width:calc(100% + 2 * var(--page-pad)); left:50%; bottom:auto; margin-block:28px 12px; }
   .archive-stage::before { width:100px; height:100px; }.archive-stage::after { right:2%; }
   .object-tag { display: none; }
-  .enter-work { left: var(--page-pad); right: var(--page-pad); bottom: 16px; grid-template-columns: 1fr 52px; }
-  .enter-work { right: auto; width: calc(100vw - (2 * var(--page-pad))); }
-  .enter-work span { text-align: left; }
   .cover-grid { inset-top: 58px; background-size: 50% 100%; }
   .scan-a { width: 90px; }
   .panel-head { height:58px; grid-template-columns:1fr 1fr; }.panel-tabs { display:none; }.panel-view { height:calc(100svh - 58px); overflow-y:auto; padding-bottom:64px; }.view-intro { height:auto; min-height:28vh; grid-template-columns:1fr 2fr; align-content:end; }.view-intro h2 { grid-column:1/-1; margin-top:20px; font-size:clamp(58px,18vw,88px); }.view-intro>span { display:none; }.project-row { grid-template-columns:34px 1fr 45px 18px; gap:8px; height:72px; }.project-row>span:not(.project-no) { display:none; }.project-row strong { font-size:clamp(19px,5vw,26px); }.project-preview { display:none; }.view-foot { position:relative; inset:auto; margin-top:28px; gap:12px; }.view-foot span:nth-child(2) { display:none; }.resume-grid article { grid-template-columns:32px 1fr; padding:16px 0; }.resume-grid article p,.resume-grid article time { grid-column:2; margin:5px 0; }.resume-note { position:relative; right:auto; bottom:auto; margin:40px 0 60px; }.contact-meta span:nth-child(2) { display:none; }.contact-view h2 { margin:14vh 0 8vh; font-size:26vw; line-height:.66; }.contact-links a { grid-template-columns:32px 1fr; padding:16px 0; }.contact-links i { grid-column:2; justify-self:start; margin-top:8px; }.contact-view .view-foot { margin-top:44px; }
@@ -311,5 +312,5 @@ h1 small { padding-top:34px; font:500 clamp(20px,2.4vw,42px)/1 var(--body); lett
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .object, .archive-panel, .nav button::after, .enter-work { transition-duration: 0ms; }
+  .object, .archive-panel, .nav button::after { transition-duration: 0ms; }
 }

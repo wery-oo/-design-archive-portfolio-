@@ -20,7 +20,12 @@ function openPanel(key) {
 }
 
 document.querySelectorAll('[data-panel]').forEach((button) => {
-  button.addEventListener('click', () => openPanel(button.dataset.panel));
+  button.addEventListener('click', () => {
+    openPanel(button.dataset.panel);
+    if (button.dataset.project) {
+      panel.querySelector(`[data-preview="${button.dataset.project}"]`).focus();
+    }
+  });
 });
 
 closeButton.addEventListener('click', () => panel.close());
