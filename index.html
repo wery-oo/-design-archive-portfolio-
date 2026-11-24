@@ -10,6 +10,9 @@
     />
     <title>Design Archive — Portfolio 2026</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./object-archive.css" />
+    <link rel="stylesheet" href="./contact-playground.css" />
+    <link rel="stylesheet" href="./visual-system.css" />
   </head>
   <body>
     <a class="skip-link" href="#cover">跳到封面</a>
@@ -41,29 +44,23 @@
       <div class="scan scan-b" aria-hidden="true"></div>
 
       <section class="hero" aria-labelledby="hero-title">
-        <div class="conveyor-belt" aria-hidden="true"><i></i></div>
         <div class="title-block">
-          <h1 id="hero-title">
-            <span>PORTFOLIO</span>
-            <small>(2024—2026)</small>
+          <h1 id="hero-title" aria-label="PORTFOLIO">
+            <pre class="ascii-title" aria-hidden="true"></pre>
           </h1>
         </div>
 
-        <div class="micro micro-right">
-          <span>PRODUCT</span>
-          <span>INTERACTION</span>
-          <span>CULTURE</span>
-          <span>&amp; MORE</span>
-        </div>
-
         <div class="archive-stage" aria-label="透明设计档案箱，内含产品、界面、草图和材料样本">
+          <img class="conveyor-belt" src="./assets/xray-conveyor.png" alt="" aria-hidden="true" />
+          <canvas class="conveyor-rollers" aria-hidden="true"></canvas>
           <div class="xray-composition">
-            <img class="bag-object object-notebook" data-depth="1.15" src="./assets/xray-notebook.png" alt="" />
-            <img class="bag-object object-id" data-depth=".8" src="./assets/xray-id.png" alt="" />
-            <img class="bag-object object-headphones" data-depth="1.05" src="./assets/xray-headphones.png" alt="" />
-            <img class="bag-object object-phone" data-depth="1.2" src="./assets/xray-phone.png" alt="" />
-            <img class="bag-object object-powerbank" data-depth=".9" src="./assets/xray-powerbank.png" alt="" />
-            <img class="xray-suitcase" src="./assets/xray-bag.png" alt="青蓝色透明 X-Ray 手提旅行包，内部陈列玫红笔记本、蓝色工牌、琥珀色耳机、紫蓝手机与充电设备" />
+            <img class="bag-object object-notebook" data-depth="1.15" data-label="NOTEBOOK / 笔记本" src="./assets/xray-notebook.png" alt="" role="button" tabindex="0" aria-label="拖动 X-Ray 笔记本" />
+            <img class="bag-object object-id" data-depth=".8" data-label="ID BADGE / 工牌" src="./assets/xray-id-green-lanyard.png" alt="" role="button" tabindex="0" aria-label="拖动 X-Ray 工牌" />
+            <img class="bag-object object-muzzle" data-depth="1.05" data-label="PET MUZZLE / 宠物嘴套" src="./assets/xray-pet-muzzle-orange.png" alt="" role="button" tabindex="0" aria-label="拖动 X-Ray 宠物嘴套" />
+            <img class="bag-object object-phone" data-depth="1.2" data-label="PHONE / 手机" src="./assets/xray-phone.png" alt="" role="button" tabindex="0" aria-label="拖动 X-Ray 手机" />
+            <img class="bag-object object-powerbank" data-depth=".9" data-label="POWER BANK / 充电宝" src="./assets/xray-powerbank-magenta.png" alt="" role="button" tabindex="0" aria-label="拖动 X-Ray 充电宝" />
+            <img class="xray-suitcase" src="./assets/xray-bag-empty.png" alt="放在安检传送带上的青蓝色透明 X-Ray 手提包，内部陈列笔记本、工牌、宠物嘴套、手机与充电设备" />
+            <div class="monitor-box" aria-hidden="true"></div>
           </div>
           <svg class="case" viewBox="0 0 940 610" role="img" aria-labelledby="case-title case-desc">
             <title id="case-title">个人设计档案箱</title>
@@ -189,23 +186,76 @@
 
         <div class="cover-index" role="group" aria-label="首页作品选录">
           <ul>
-            <li><button type="button" data-panel="work" data-project="product">OBJECT / SYSTEM, 2026 <span aria-hidden="true">↗</span></button></li>
-            <li><button type="button" data-panel="work" data-project="interface">INTERFACE STUDY, 2026 <span aria-hidden="true">↗</span></button></li>
-            <li><button type="button" data-panel="work" data-project="culture">CULTURAL OBJECTS, 2026 <span aria-hidden="true">↗</span></button></li>
-          </ul>
-          <ul>
-            <li><button type="button" data-panel="work" data-project="identity">VISUAL IDENTITY <span aria-hidden="true">↗</span></button></li>
-            <li><button type="button" data-panel="work" data-project="research">MATERIAL RESEARCH <span aria-hidden="true">↗</span></button></li>
+            <li><button type="button" data-panel="work" data-project="product"><span>01</span><strong>OBJECT / SYSTEM</strong><i aria-hidden="true">↗</i></button></li>
+            <li><button type="button" data-panel="work" data-project="interface"><span>02</span><strong>INTERFACE STUDY</strong><i aria-hidden="true">↗</i></button></li>
+            <li><button type="button" data-panel="work" data-project="culture"><span>03</span><strong>CULTURAL OBJECTS</strong><i aria-hidden="true">↗</i></button></li>
+            <li><button type="button" data-panel="work" data-project="identity"><span>04</span><strong>VISUAL IDENTITY</strong><i aria-hidden="true">↗</i></button></li>
+            <li><button type="button" data-panel="work" data-project="research"><span>05</span><strong>MATERIAL RESEARCH</strong><i aria-hidden="true">↗</i></button></li>
           </ul>
         </div>
 
+        <aside class="scan-receipt scan-ticket" aria-label="个人设计档案安检票据">
+          <div class="receipt-heading">SCAN ID: DESIGN- 设计</div>
+          <div class="receipt-meta"><span>06-10-2006</span><span>820130</span><span>L</span><span>T2W-SaGe</span><span>T2W-SaGe</span><span>22-12-2026</span></div>
+          <div class="receipt-values"><div><span>TR</span><b>78.00</b><span>TE</span><b>-35.00</b></div><div><span>Since</span><b>78.00</b><span>End</span><b>-35.00</b></div></div>
+          <div class="receipt-blank" aria-hidden="true"></div>
+          <p class="receipt-category">CONCEPTUAL DESIGN 概念作品</p>
+          <p class="receipt-credit">DESIGNED BY<br />Wery_oo</p>
+        </aside>
         <div class="edition" aria-label="版本信息">
           <span>VOL. 01</span>
           <span>© 2026</span>
         </div>
+
+        <a class="profile-jump" href="#object-archive" aria-label="浏览物品展示">
+          <span>PROFILE / SCAN 02</span><i aria-hidden="true">↓</i>
+        </a>
+        <div class="motion-probe" aria-hidden="true"><i></i><span>SCAN 000 / 000</span></div>
       </section>
     </main>
 
+    <section class="object-archive object-archive-chapter" id="object-archive" aria-label="横向作品档案">
+      <div class="object-archive-sticky">
+        <header class="object-archive-head"><span>DESIGN ARCHIVE®</span><a class="object-archive-close" href="./works.html">进入作品表格 ↗</a></header>
+        <div class="object-archive-meta"><span>PERSONAL OBJECTS / SELECTED ARCHIVE</span><span>01 — 05</span></div>
+        <div class="object-rail" tabindex="0" aria-label="作品物件横向列表，滚动页面浏览">
+          <div class="object-rail-track">
+            <div class="object-bag-echo" aria-hidden="true"><img src="./assets/xray-bag-empty.png" alt="" /></div>
+            <button class="archive-object notebook" type="button"><span class="object-measure" aria-hidden="true"></span><img src="./assets/xray-notebook.png" alt="玫红色透明笔记本" /><span class="object-caption"><span>2026 / 01</span><strong>NOTEBOOK — PRODUCT STUDY</strong><small>项目档案待补充</small></span></button>
+            <button class="archive-object badge" type="button"><span class="object-measure" aria-hidden="true"></span><img src="./assets/xray-id-green-lanyard.png" alt="带挂绳的绿色透明工牌" /><span class="object-caption"><span>2026 / 02</span><strong>ID BADGE — VISUAL SYSTEM</strong><small>项目档案待补充</small></span></button>
+            <button class="archive-object muzzle" type="button"><span class="object-measure" aria-hidden="true"></span><img src="./assets/xray-pet-muzzle-orange.png" alt="橙色透明宠物嘴套" /><span class="object-caption"><span>2026 / 03</span><strong>PET MUZZLE — OBJECT STUDY</strong><small>项目档案待补充</small></span></button>
+            <button class="archive-object phone" type="button"><span class="object-measure" aria-hidden="true"></span><img src="./assets/xray-phone.png" alt="紫蓝色透视手机" /><span class="object-caption"><span>2026 / 04</span><strong>PHONE — INTERFACE STUDY</strong><small>项目档案待补充</small></span></button>
+            <button class="archive-object powerbank" type="button"><span class="object-measure" aria-hidden="true"></span><img src="./assets/xray-powerbank-magenta.png" alt="可见内部电芯的玫红充电宝" /><span class="object-caption"><span>2026 / 05</span><strong>POWER BANK — SYSTEM STUDY</strong><small>项目档案待补充</small></span></button>
+            <aside class="archive-contact" id="contact" aria-label="联系方式">
+              <div class="archive-contact-ticket scan-ticket">
+                <p>CONTACT / 联系方式 <span>06 CHANNELS</span></p>
+                <dl>
+                  <div><dt>EMAIL</dt><dd>—</dd></div>
+                  <div><dt>电话 / PHONE</dt><dd>—</dd></div>
+                  <div><dt>GITHUB</dt><dd>—</dd></div>
+                  <div><dt>微信 / WECHAT</dt><dd>—</dd></div>
+                  <div><dt>BEHANCE</dt><dd>—</dd></div>
+                  <div><dt>INSTAGRAM</dt><dd>—</dd></div>
+                </dl>
+                <p class="archive-contact-sign">DESIGNED BY<br />Wery_oo</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <footer class="object-archive-foot"><span>继续滚动浏览 ↔</span><div class="object-scroll-meter"><i></i></div><span>05 OBJECTS</span></footer>
+      </div>
+    </section>
+
+
+    <dialog class="contact-playground" aria-labelledby="contact-play-title">
+      <header class="contact-play-head"><span>DESIGN ARCHIVE® / LIVE CONNECTION</span><button type="button" class="contact-play-close">关闭 ×</button></header>
+      <h2 id="contact-play-title">MAKE<br /><span>CONTACT.</span></h2>
+      <p class="contact-play-instruction">拖动标签，建立连接。<br />点击查看联系方式。</p>
+      <svg class="contact-wires" aria-hidden="true"><g></g></svg>
+      <div class="contact-play-nodes"></div>
+      <div class="contact-readout" aria-live="polite"><span>CONNECTION / IDLE</span><strong>选择一个频道 ↗</strong><p>EMAIL / PHONE / SOCIAL</p><button type="button" class="contact-action" hidden>复制</button></div>
+      <footer class="contact-play-foot"><span>OUTSIDE = PERSONALITY / INSIDE = SYSTEM</span><button type="button" class="contact-reset">重新排列 ↺</button></footer>
+    </dialog>
     <dialog class="archive-panel" aria-labelledby="panel-title">
       <div class="panel-head">
         <a class="panel-brand" href="#cover" data-close-panel>DA<sup>26</sup></a>
@@ -260,6 +310,10 @@
       </section>
     </dialog>
 
+    <script src="./object-archive.js"></script>
+    <script src="./contact-playground.js"></script>
     <script src="./script.js"></script>
+    <script src="./motion-atmosphere.js"></script>
+    <script src="./bag-portal.js"></script>
   </body>
 </html>

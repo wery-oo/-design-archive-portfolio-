@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta
+      name="description"
+      content="多学科设计师作品集封面概念：产品、界面与文创设计的个人档案。"
+    />
+    <title>王璇 · 个人简介 — Design Archive</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./object-archive.css" />
+    <link rel="stylesheet" href="./contact-playground.css" />
+    <link rel="stylesheet" href="./visual-system.css" />
+  </head>
+  <body class="resume-page">
+    <a class="skip-link" href="./index.html">跳到封面</a>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="wordmark" href="./index.html" aria-label="返回封面">
+        <span>Design Archive®</span>
+      </a>
+      <p class="discipline">Product / Interaction / Culture</p>
+      <nav class="nav" aria-label="作品集导航">
+        <button type="button" data-panel="resume" aria-current="page">简历</button>
+        <button type="button" data-panel="work">作品</button>
+        <button type="button" data-panel="contact">联系</button>
+      </nav>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span>菜单</span><i aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <button type="button" data-panel="resume">01 简历</button>
+      <button type="button" data-panel="work">02 作品</button>
+      <button type="button" data-panel="contact">03 联系</button>
+    </div>
+
+    <main class="profile-scanner resume-story" aria-labelledby="about-title">
+      <div class="resume-poster">
+        <h1 id="about-title" class="resume-poster-title">About Me</h1>
+        <div class="resume-portrait">
+          <canvas class="profile-person-canvas" tabindex="0" aria-label="聚散旋转的 ASCII 半身像，按空格暂停或继续"></canvas>
+          <span class="resume-portrait-name">王璇</span>
+        </div>
+        <a class="resume-read-link" href="#resume-reading">向下阅读 ↓</a>
+      </div>
+      <div class="resume-reading" id="resume-reading">
+        <div class="resume-main">
+          <section class="resume-intro" aria-labelledby="intro-title">
+            <h2 id="intro-title">个人介绍</h2>
+            <p>我常从日常生活里不顺手的细节开始做设计。一个物件拿起来是否舒服，一段界面信息能不能一眼读懂，都是我想仔细看看的问题。</p>
+            <p>我在杭州学习工业设计，也做界面和文创设计。我喜欢先观察人怎么使用一件东西，再做一个能拿在手里或点开试用的原型，看看哪些判断经得起实际使用。</p>
+          </section>
+          <section class="resume-skills" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills</h2>
+            <ul class="software-list">
+              <li><img src="./assets/software/figma.svg" alt="" width="30" height="30" /><span>Figma</span></li>
+              <li><img src="./assets/software/adobephotoshop.svg" alt="" width="30" height="30" /><span>Photoshop</span></li>
+              <li><img src="./assets/software/adobeillustrator.svg" alt="" width="30" height="30" /><span>Illustrator</span></li>
+              <li><img src="./assets/software/rhinoceros.svg" alt="" width="30" height="30" /><span>Rhino</span></li>
+              <li><img src="./assets/software/keyshot.svg" alt="" width="30" height="30" /><span>KeyShot</span></li>
+              <li><img src="./assets/software/blender.svg" alt="" width="30" height="30" /><span>Blender</span></li>
+            </ul>
+          </section>
+          <section class="resume-experience" aria-labelledby="experience-title">
+            <h2 id="experience-title">实习与个人经历</h2>
+            <p class="resume-pending">经历整理中</p>
+          </section>
+        </div>
+        <aside class="resume-personal" aria-labelledby="resume-name">
+          <figure class="identity-photo">
+            <img src="./assets/profile-reference-frame.png" alt="王璇的黑白个人照片" />
+          </figure>
+          <div class="resume-personal-details">
+            <h2 id="resume-name">王璇</h2>
+            <p>UI 设计师 · 浙江杭州</p>
+            <dl class="resume-facts">
+              <div><dt>年龄</dt><dd>20 岁</dd></div>
+              <div><dt>出生日期</dt><dd><time datetime="2006-06-10">2006.06.10</time></dd></div>
+              <div><dt>性别</dt><dd>女</dd></div>
+            </dl>
+          </div>
+          <section class="resume-education" aria-labelledby="education-title">
+            <h2 id="education-title">教育经历</h2>
+            <p>浙江科技大学</p>
+            <p>工业设计 · 全日制本科</p>
+            <p class="resume-dates">2024.09 — 2027.06</p>
+            <p class="resume-courses">架构设计、国标设计、设计方法、工程制图</p>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <dialog class="contact-playground" aria-labelledby="contact-play-title">
+      <header class="contact-play-head"><span>DESIGN ARCHIVE® / LIVE CONNECTION</span><button type="button" class="contact-play-close">关闭 ×</button></header>
+      <h2 id="contact-play-title">MAKE<br /><span>CONTACT.</span></h2>
+      <p class="contact-play-instruction">拖动标签，建立连接。<br />点击查看联系方式。</p>
+      <svg class="contact-wires" aria-hidden="true"><g></g></svg>
+      <div class="contact-play-nodes"></div>
+      <div class="contact-readout" aria-live="polite"><span>CONNECTION / IDLE</span><strong>选择一个频道 ↗</strong><p>EMAIL / PHONE / SOCIAL</p><button type="button" class="contact-action" hidden>复制</button></div>
+      <footer class="contact-play-foot"><span>OUTSIDE = PERSONALITY / INSIDE = SYSTEM</span><button type="button" class="contact-reset">重新排列 ↺</button></footer>
+    </dialog>
+    <dialog class="archive-panel" aria-labelledby="panel-title">
+      <div class="panel-head">
+        <a class="panel-brand" href="#cover" data-close-panel>DA<sup>26</sup></a>
+        <div class="panel-tabs" role="tablist" aria-label="档案页面">
+          <button type="button" data-panel="resume" role="tab">简历</button>
+          <button type="button" data-panel="work" role="tab">作品</button>
+          <button type="button" data-panel="contact" role="tab">联系</button>
+        </div>
+        <button class="panel-close" type="button" aria-label="关闭档案">关闭 <span>×</span></button>
+      </div>
+
+      <section class="panel-view work-view" data-view="work" aria-labelledby="panel-title">
+        <div class="view-intro"><p>SELECTED WORK / 2026</p><h2 id="panel-title">作品索引</h2><span>移动指针查看档案预览<br />项目内容为结构占位</span></div>
+        <div class="work-index">
+          <button class="project-row is-active" type="button" data-preview="product"><span class="project-no">01</span><strong>OBJECT / SYSTEM 01</strong><span>Product Design</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="interface"><span class="project-no">02</span><strong>INTERFACE STUDY</strong><span>UI / UX</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="culture"><span class="project-no">03</span><strong>CULTURAL OBJECTS</strong><span>Cultural Design</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="identity"><span class="project-no">04</span><strong>VISUAL IDENTITY 04</strong><span>Graphic System</span><time>2025</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="research"><span class="project-no">05</span><strong>MATERIAL RESEARCH</strong><span>Experiment</span><time>2025</time><i>↗</i></button>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <div class="preview-art preview-product is-visible" data-art="product"><b>01</b><em></em><span>PRODUCT<br />STUDY</span></div>
+          <div class="preview-art preview-interface" data-art="interface"><b>02</b><em></em><span>UI / UX<br />SYSTEM</span></div>
+          <div class="preview-art preview-culture" data-art="culture"><b>03</b><em></em><span>CULTURAL<br />OBJECT</span></div>
+          <div class="preview-art preview-identity" data-art="identity"><b>04</b><em></em><span>IDENTITY<br />SYSTEM</span></div>
+          <div class="preview-art preview-research" data-art="research"><b>05</b><em></em><span>MATERIAL<br />SCAN</span></div>
+        </div>
+        <div class="view-foot"><span>05 ENTRIES</span><span>PRODUCT / DIGITAL / CULTURE</span><span>END OF INDEX ↓</span></div>
+      </section>
+
+      <section class="panel-view resume-view" data-view="resume" aria-labelledby="resume-title" hidden>
+        <div class="view-intro"><p>CURRICULUM VITAE</p><h2 id="resume-title">个人档案</h2><span>内容将在下一阶段填写<br />当前展示信息结构</span></div>
+        <div class="resume-grid">
+          <article><span>01</span><h3>EDUCATION</h3><p>学校 / 专业 / 学位</p><time>20XX—20XX</time></article>
+          <article><span>02</span><h3>EXPERIENCE</h3><p>机构 / 职位 / 设计实践</p><time>20XX—NOW</time></article>
+          <article><span>03</span><h3>AWARDS</h3><p>奖项名称 / 展览 / 入选</p><time>—</time></article>
+          <article><span>04</span><h3>SKILLS</h3><p>Product · UI / UX · Cultural Design</p><time>TOOLS + METHODS</time></article>
+        </div>
+        <p class="resume-note">A multidisciplinary designer working between physical objects, digital interfaces and cultural narratives.</p>
+        <div class="view-foot"><span>CV / PLACEHOLDER</span><span>AVAILABLE FOR COLLABORATION</span><span>2026</span></div>
+      </section>
+
+      <section class="panel-view contact-view" data-view="contact" aria-labelledby="contact-title" hidden>
+        <div class="contact-meta"><span>CONTACT / 03</span><span>SHANGHAI, CN</span><span>LOCAL TIME <b id="local-time">--:--</b></span></div>
+        <h2 id="contact-title">LET’S<br /><i>TALK</i><sup>↗</sup></h2>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com"><span>01</span>EMAIL<i>hello@example.com ↗</i></a>
+          <a href="#" aria-label="LinkedIn 占位链接"><span>02</span>LINKEDIN<i>PROFILE PLACEHOLDER ↗</i></a>
+          <a href="#" aria-label="其他社交平台占位链接"><span>03</span>OTHER SOCIAL<i>PROFILE PLACEHOLDER ↗</i></a>
+        </div>
+        <div class="view-foot"><span>OPEN TO CONVERSATIONS</span><span>REPLY WITHIN 2—3 DAYS</span><span>© 2026</span></div>
+      </section>
+    </dialog>
+
+
+    <script src="./page-navigation.js"></script>
+    <script src="./contact-playground.js"></script>
+    <script defer src="./profile-person.bundle.js?v=8"></script>
+    <script src="./identity-transition.js"></script>
+  </body>
+</html>

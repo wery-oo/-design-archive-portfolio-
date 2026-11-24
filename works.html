@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta
+      name="description"
+      content="多学科设计师作品集封面概念：产品、界面与文创设计的个人档案。"
+    />
+    <title>Design Archive — Portfolio 2026</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./object-archive.css" />
+    <link rel="stylesheet" href="./contact-playground.css" />
+    <link rel="stylesheet" href="./visual-system.css" />
+  </head>
+  <body class="work-page">
+    <a class="skip-link" href="./index.html">跳到封面</a>
+
+    <header class="site-header" aria-label="主导航">
+      <a class="wordmark" href="./index.html" aria-label="返回封面">
+        <span>Design Archive®</span>
+      </a>
+      <p class="discipline">Product / Interaction / Culture</p>
+      <nav class="nav" aria-label="作品集导航">
+        <button type="button" data-panel="resume">简历</button>
+        <button type="button" data-panel="work" aria-current="page">作品</button>
+        <button type="button" data-panel="contact">联系</button>
+      </nav>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span>菜单</span><i aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <button type="button" data-panel="resume">01 简历</button>
+      <button type="button" data-panel="work">02 作品</button>
+      <button type="button" data-panel="contact">03 联系</button>
+    </div>
+
+    <main class="scroll-works" id="works" aria-labelledby="work-index-heading">
+      <div class="work-index-column">
+        <div class="work-index-heading">
+          <h1 id="work-index-heading">作品档案</h1>
+          <span>项目占位</span>
+        </div>
+        <ol class="scroll-work-list"></ol>
+      </div>
+      <figure class="work-specimen">
+        <div class="work-specimen-stage">
+          <img src="./assets/xray-notebook.png" alt="" />
+          <img src="./assets/xray-phone.png" alt="" hidden />
+          <img src="./assets/xray-pet-muzzle-orange.png" alt="" hidden />
+          <img src="./assets/xray-id-green-lanyard.png" alt="" hidden />
+          <img src="./assets/xray-powerbank-magenta.png" alt="" hidden />
+        </div>
+        <figcaption>首页 X-Ray 素材预览</figcaption>
+      </figure>
+    </main>
+
+    <dialog class="contact-playground" aria-labelledby="contact-play-title">
+      <header class="contact-play-head"><span>DESIGN ARCHIVE® / LIVE CONNECTION</span><button type="button" class="contact-play-close">关闭 ×</button></header>
+      <h2 id="contact-play-title">MAKE<br /><span>CONTACT.</span></h2>
+      <p class="contact-play-instruction">拖动标签，建立连接。<br />点击查看联系方式。</p>
+      <svg class="contact-wires" aria-hidden="true"><g></g></svg>
+      <div class="contact-play-nodes"></div>
+      <div class="contact-readout" aria-live="polite"><span>CONNECTION / IDLE</span><strong>选择一个频道 ↗</strong><p>EMAIL / PHONE / SOCIAL</p><button type="button" class="contact-action" hidden>复制</button></div>
+      <footer class="contact-play-foot"><span>OUTSIDE = PERSONALITY / INSIDE = SYSTEM</span><button type="button" class="contact-reset">重新排列 ↺</button></footer>
+    </dialog>
+    <dialog class="archive-panel" aria-labelledby="panel-title">
+      <div class="panel-head">
+        <a class="panel-brand" href="#cover" data-close-panel>DA<sup>26</sup></a>
+        <div class="panel-tabs" role="tablist" aria-label="档案页面">
+          <button type="button" data-panel="resume" role="tab">简历</button>
+          <button type="button" data-panel="work" role="tab">作品</button>
+          <button type="button" data-panel="contact" role="tab">联系</button>
+        </div>
+        <button class="panel-close" type="button" aria-label="关闭档案">关闭 <span>×</span></button>
+      </div>
+
+      <section class="panel-view work-view" data-view="work" aria-labelledby="panel-title">
+        <div class="view-intro"><p>SELECTED WORK / 2026</p><h2 id="panel-title">作品索引</h2><span>移动指针查看档案预览<br />项目内容为结构占位</span></div>
+        <div class="work-index">
+          <button class="project-row is-active" type="button" data-preview="product"><span class="project-no">01</span><strong>OBJECT / SYSTEM 01</strong><span>Product Design</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="interface"><span class="project-no">02</span><strong>INTERFACE STUDY</strong><span>UI / UX</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="culture"><span class="project-no">03</span><strong>CULTURAL OBJECTS</strong><span>Cultural Design</span><time>2026</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="identity"><span class="project-no">04</span><strong>VISUAL IDENTITY 04</strong><span>Graphic System</span><time>2025</time><i>↗</i></button>
+          <button class="project-row" type="button" data-preview="research"><span class="project-no">05</span><strong>MATERIAL RESEARCH</strong><span>Experiment</span><time>2025</time><i>↗</i></button>
+        </div>
+        <div class="project-preview" aria-hidden="true">
+          <div class="preview-art preview-product is-visible" data-art="product"><b>01</b><em></em><span>PRODUCT<br />STUDY</span></div>
+          <div class="preview-art preview-interface" data-art="interface"><b>02</b><em></em><span>UI / UX<br />SYSTEM</span></div>
+          <div class="preview-art preview-culture" data-art="culture"><b>03</b><em></em><span>CULTURAL<br />OBJECT</span></div>
+          <div class="preview-art preview-identity" data-art="identity"><b>04</b><em></em><span>IDENTITY<br />SYSTEM</span></div>
+          <div class="preview-art preview-research" data-art="research"><b>05</b><em></em><span>MATERIAL<br />SCAN</span></div>
+        </div>
+        <div class="view-foot"><span>05 ENTRIES</span><span>PRODUCT / DIGITAL / CULTURE</span><span>END OF INDEX ↓</span></div>
+      </section>
+
+      <section class="panel-view resume-view" data-view="resume" aria-labelledby="resume-title" hidden>
+        <div class="view-intro"><p>CURRICULUM VITAE</p><h2 id="resume-title">个人档案</h2><span>内容将在下一阶段填写<br />当前展示信息结构</span></div>
+        <div class="resume-grid">
+          <article><span>01</span><h3>EDUCATION</h3><p>学校 / 专业 / 学位</p><time>20XX—20XX</time></article>
+          <article><span>02</span><h3>EXPERIENCE</h3><p>机构 / 职位 / 设计实践</p><time>20XX—NOW</time></article>
+          <article><span>03</span><h3>AWARDS</h3><p>奖项名称 / 展览 / 入选</p><time>—</time></article>
+          <article><span>04</span><h3>SKILLS</h3><p>Product · UI / UX · Cultural Design</p><time>TOOLS + METHODS</time></article>
+        </div>
+        <p class="resume-note">A multidisciplinary designer working between physical objects, digital interfaces and cultural narratives.</p>
+        <div class="view-foot"><span>CV / PLACEHOLDER</span><span>AVAILABLE FOR COLLABORATION</span><span>2026</span></div>
+      </section>
+
+      <section class="panel-view contact-view" data-view="contact" aria-labelledby="contact-title" hidden>
+        <div class="contact-meta"><span>CONTACT / 03</span><span>SHANGHAI, CN</span><span>LOCAL TIME <b id="local-time">--:--</b></span></div>
+        <h2 id="contact-title">LET’S<br /><i>TALK</i><sup>↗</sup></h2>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com"><span>01</span>EMAIL<i>hello@example.com ↗</i></a>
+          <a href="#" aria-label="LinkedIn 占位链接"><span>02</span>LINKEDIN<i>PROFILE PLACEHOLDER ↗</i></a>
+          <a href="#" aria-label="其他社交平台占位链接"><span>03</span>OTHER SOCIAL<i>PROFILE PLACEHOLDER ↗</i></a>
+        </div>
+        <div class="view-foot"><span>OPEN TO CONVERSATIONS</span><span>REPLY WITHIN 2—3 DAYS</span><span>© 2026</span></div>
+      </section>
+    </dialog>
+
+
+    <script src="./page-navigation.js"></script>
+    <script src="./contact-playground.js"></script>
+    <script src="./work-motion.js"></script>
+  </body>
+</html>

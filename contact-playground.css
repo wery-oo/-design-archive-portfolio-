@@ -1,0 +1,45 @@
+.contact-chapter{position:relative;min-height:110svh;padding:38px 2.5vw 85px;background:#fff;border-top:1px solid #111;overflow:hidden}
+.contact-chapter-top{display:flex;justify-content:space-between;font:500 9px/1 var(--mono)}
+.contact-chapter h2{margin:7svh 0 0;font:800 clamp(90px,14vw,230px)/.78 Arial,sans-serif;letter-spacing:-.085em;width:max-content}
+.contact-chapter h2>span{position:relative;display:block;margin-left:8vw}
+.contact-star{display:inline-block;color:#146dff;font-size:.8em;margin-left:.1em;animation:contact-star-turn 22s linear infinite;vertical-align:top}
+.contact-invitation{position:absolute;left:66%;top:16%;font:600 clamp(16px,1.8vw,28px)/1.2 Arial,sans-serif;letter-spacing:-.04em}
+.contact-channel-cloud{position:relative;margin-top:9svh;min-height:37svh}
+.contact-channel{position:absolute;border:0;border-top:1px solid #111;text-align:left;background:none;padding:10px 0;cursor:pointer;width:23%;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.contact-channel small,.contact-channel>span{display:block;font:500 9px/1.3 var(--mono)}
+.contact-channel strong{display:block;font:800 clamp(23px,3.2vw,50px)/1.15 Arial,sans-serif;letter-spacing:-.055em;margin:5px 0 12px;position:relative;width:max-content;isolation:isolate}
+.contact-channel strong::before{content:'';position:absolute;inset:12% -5% 0;z-index:-1;background:var(--signal);transform:scaleX(0) rotate(-3deg);transform-origin:left;transition:transform .35s}
+.contact-channel:hover,.contact-channel:focus-visible{transform:translateY(-7px)}
+.contact-channel:hover strong::before,.contact-channel:focus-visible strong::before{transform:scaleX(1) rotate(-3deg)}
+.contact-channel-email{left:2%;top:0}.contact-channel-phone{left:37%;top:8svh}.contact-channel-github{right:0;top:-4svh}
+.contact-channel-wechat{left:8%;top:22svh}.contact-channel-behance{left:42%;top:29svh}.contact-channel-instagram{right:0;top:20svh}
+.contact-play-open{position:relative;margin:13svh 0 9svh 7vw;padding:12px 0;border:0;border-bottom:1px solid #111;background:none;font:600 14px/1 Arial,sans-serif;cursor:pointer}
+.contact-chapter-footer{position:absolute;bottom:25px;left:2.5vw;right:2.5vw;display:flex;justify-content:space-between;align-items:center;font:500 8px/1.2 var(--mono);border-top:1px solid #111;padding-top:15px}
+.contact-chapter-footer a{color:inherit;text-decoration:none}
+.contact-playground{position:fixed;inset:0;width:100vw;max-width:none;height:100svh;max-height:none;margin:0;padding:0;border:0;background:#fafcfc;color:#111;overflow:hidden;isolation:isolate}
+.contact-playground::backdrop{background:#fff}
+.contact-play-head,.contact-play-foot{position:absolute;z-index:5;left:2.5vw;right:2.5vw;display:flex;align-items:center;justify-content:space-between;font:500 9px/1 var(--mono)}
+.contact-play-head{top:25px}.contact-play-foot{bottom:24px}
+.contact-play-head button,.contact-play-foot button{padding:10px 0;border:0;border-bottom:1px solid #111;background:none;cursor:pointer;font:600 12px/1 Arial,sans-serif}
+.contact-playground h2{position:absolute;left:4%;top:10%;margin:0;color:#dfe6e6;font:800 clamp(80px,12vw,210px)/.8 Arial,sans-serif;letter-spacing:-.085em;pointer-events:none;z-index:-1}
+.contact-playground h2 span{margin-left:10vw}
+.contact-play-instruction{position:absolute;right:5%;top:10%;font:500 11px/1.6 var(--mono);text-align:right}
+.contact-wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.7;z-index:-1}
+.contact-wires path{fill:none;stroke-width:1;stroke-dasharray:3 6;animation:contact-wire 12s linear infinite}
+.contact-play-nodes{position:absolute;inset:0;pointer-events:none}
+.contact-node{position:absolute;pointer-events:auto;touch-action:none;user-select:none;border:1px solid #111;border-radius:0;background:var(--signal);color:#111;width:clamp(130px,15vw,230px);padding:12px 14px 18px;text-align:left;box-shadow:5px 5px 0 #111;cursor:grab;opacity:0;transform:translateY(80px) rotate(0);transition:opacity .6s var(--delay),transform .7s cubic-bezier(.2,.8,.2,1) var(--delay),box-shadow .2s}
+.is-live .contact-node{opacity:1;transform:translateY(0) rotate(var(--r))}
+.contact-node small{display:block;font:500 8px/1 var(--mono);margin-bottom:15px}
+.contact-node strong{font:800 clamp(17px,1.9vw,30px)/1 Arial,sans-serif;letter-spacing:-.06em}
+.contact-node>span{position:absolute;right:10px;top:9px;font-size:18px}
+.contact-node:hover,.contact-node.is-held{box-shadow:9px 10px 0 #111;transform:translateY(-5px) rotate(0);z-index:3}
+.contact-node.is-held{cursor:grabbing;transition:box-shadow .2s,transform .2s}
+.contact-node.is-active{outline:1px dashed #111;outline-offset:8px}
+.contact-readout{position:absolute;z-index:4;left:37%;top:29%;width:29%;padding:20px;background:#fff;border:1px solid #111;border-left:5px solid var(--signal,#111);pointer-events:auto}
+.contact-readout>span{font:500 8px/1 var(--mono)}
+.contact-readout strong{display:block;margin:18px 0 15px;font:700 clamp(18px,2vw,28px)/1.15 Arial,sans-serif;letter-spacing:-.04em;overflow-wrap:anywhere;user-select:text}
+.contact-readout p{margin:0;font:500 9px/1.4 var(--mono)}
+.contact-action{margin-top:15px;border:0;border-bottom:1px solid #111;background:none;padding:5px 0;font:600 12px/1 Arial,sans-serif;cursor:pointer}
+@keyframes contact-star-turn{to{transform:rotate(360deg)}}
+@keyframes contact-wire{to{stroke-dashoffset:-180}}
+@media(max-width:700px){.contact-chapter{min-height:130svh;padding-inline:5vw}.contact-chapter h2{font-size:22vw;margin-top:10svh}.contact-invitation{left:auto;right:6%;top:27%;font-size:15px}.contact-channel-cloud{margin-top:18svh;min-height:48svh}.contact-channel{width:40%}.contact-channel strong{font-size:6vw}.contact-channel-email{left:0;top:0}.contact-channel-phone{left:55%;top:5svh}.contact-channel-github{left:0;top:17svh}.contact-channel-wechat{left:55%;top:22svh}.contact-channel-behance{left:0;top:34svh}.contact-channel-instagram{left:55%;top:39svh}.contact-play-open{margin:8svh 0}.contact-chapter-footer{font-size:6px;gap:15px}.contact-node{width:34vw;padding:10px}.contact-readout{left:26%;top:35%;width:66%;padding:15px}.contact-play-instruction{top:15%;font-size:9px}.contact-play-foot{font-size:6px}.contact-playground h2{top:18%;font-size:16vw}.contact-play-head{font-size:7px}}
