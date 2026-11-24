@@ -8,7 +8,7 @@
       name="description"
       content="多学科设计师作品集封面概念：产品、界面与文创设计的个人档案。"
     />
-    <title>王璇 · 个人简介 — Design Archive</title>
+    <title>王瑜 · 个人简介 — Design Archive</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./object-archive.css" />
     <link rel="stylesheet" href="./contact-playground.css" />
@@ -40,20 +40,51 @@
 
     <main class="profile-scanner resume-story" aria-labelledby="about-title">
       <div class="resume-poster">
-        <h1 id="about-title" class="resume-poster-title">About Me</h1>
         <div class="resume-portrait">
           <canvas class="profile-person-canvas" tabindex="0" aria-label="聚散旋转的 ASCII 半身像，按空格暂停或继续"></canvas>
-          <span class="resume-portrait-name">王璇</span>
+          <canvas class="resume-particle-canvas" aria-hidden="true"></canvas>
+          <p class="resume-particle-status" aria-live="polite"><span>PARTICLE FIELD</span><b>ASSEMBLING / 000%</b></p>
+          <div class="resume-signature">
+            <h1 id="about-title">
+              <a class="resume-greeting" href="#resume-reading" aria-label="Hello, I’m Wery_oo，进入个人资料">
+                <span class="resume-greeting-text" aria-hidden="true">Hello, I’m Wery_oo</span><span class="resume-greeting-arrow" aria-hidden="true">↓</span>
+              </a>
+            </h1>
+          </div>
         </div>
-        <a class="resume-read-link" href="#resume-reading">向下阅读 ↓</a>
       </div>
-      <div class="resume-reading" id="resume-reading">
+      <div class="resume-reading" id="resume-reading" tabindex="-1">
         <div class="resume-main">
           <section class="resume-intro" aria-labelledby="intro-title">
             <h2 id="intro-title">个人介绍</h2>
             <p>我常从日常生活里不顺手的细节开始做设计。一个物件拿起来是否舒服，一段界面信息能不能一眼读懂，都是我想仔细看看的问题。</p>
             <p>我在杭州学习工业设计，也做界面和文创设计。我喜欢先观察人怎么使用一件东西，再做一个能拿在手里或点开试用的原型，看看哪些判断经得起实际使用。</p>
           </section>
+          <section class="resume-education" aria-labelledby="education-title">
+            <h2 id="education-title">教育经历</h2>
+            <p>浙江科技大学</p>
+            <p>工业设计 · 全日制本科</p>
+            <p class="resume-dates">2024.09 — 2027.06</p>
+            <p class="resume-courses">架构设计、图标设计、设计方法、工程制图</p>
+          </section>
+          <section class="resume-experience" aria-labelledby="experience-title">
+            <h2 id="experience-title">实习与个人经历</h2>
+            <p class="resume-pending">经历整理中</p>
+          </section>
+        </div>
+        <aside class="resume-personal" aria-labelledby="resume-name">
+          <figure class="identity-photo">
+            <img src="./assets/profile-wangyu.jpg" alt="王瑜的黑白个人照片" />
+          </figure>
+          <div class="resume-personal-details">
+            <h2 id="resume-name">王瑜</h2>
+            <p>UI 设计师 · 浙江杭州</p>
+            <dl class="resume-facts">
+              <div><dt>年龄</dt><dd>20 岁</dd></div>
+              <div><dt>出生日期</dt><dd><time datetime="2006-06-10">2006.06.10</time></dd></div>
+              <div><dt>性别</dt><dd>女</dd></div>
+            </dl>
+          </div>
           <section class="resume-skills" aria-labelledby="skills-title">
             <h2 id="skills-title">Skills</h2>
             <ul class="software-list">
@@ -64,31 +95,6 @@
               <li><img src="./assets/software/keyshot.svg" alt="" width="30" height="30" /><span>KeyShot</span></li>
               <li><img src="./assets/software/blender.svg" alt="" width="30" height="30" /><span>Blender</span></li>
             </ul>
-          </section>
-          <section class="resume-experience" aria-labelledby="experience-title">
-            <h2 id="experience-title">实习与个人经历</h2>
-            <p class="resume-pending">经历整理中</p>
-          </section>
-        </div>
-        <aside class="resume-personal" aria-labelledby="resume-name">
-          <figure class="identity-photo">
-            <img src="./assets/profile-reference-frame.png" alt="王璇的黑白个人照片" />
-          </figure>
-          <div class="resume-personal-details">
-            <h2 id="resume-name">王璇</h2>
-            <p>UI 设计师 · 浙江杭州</p>
-            <dl class="resume-facts">
-              <div><dt>年龄</dt><dd>20 岁</dd></div>
-              <div><dt>出生日期</dt><dd><time datetime="2006-06-10">2006.06.10</time></dd></div>
-              <div><dt>性别</dt><dd>女</dd></div>
-            </dl>
-          </div>
-          <section class="resume-education" aria-labelledby="education-title">
-            <h2 id="education-title">教育经历</h2>
-            <p>浙江科技大学</p>
-            <p>工业设计 · 全日制本科</p>
-            <p class="resume-dates">2024.09 — 2027.06</p>
-            <p class="resume-courses">架构设计、国标设计、设计方法、工程制图</p>
           </section>
         </aside>
       </div>
@@ -158,9 +164,10 @@
     </dialog>
 
 
+    <script src="./assets/vendor/gsap/gsap.min.js"></script>
     <script src="./page-navigation.js"></script>
     <script src="./contact-playground.js"></script>
-    <script defer src="./profile-person.bundle.js?v=8"></script>
+    <script defer src="./profile-person.bundle.js?v=10"></script>
     <script src="./identity-transition.js"></script>
   </body>
 </html>

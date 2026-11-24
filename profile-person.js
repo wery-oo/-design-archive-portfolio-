@@ -141,16 +141,15 @@ if (canvas && section) {
   });
   canvas.addEventListener('pointerleave', () => { pointer.x = -1000; pointer.y = -1000; });
   function displace(x, y, column, row, width, height, time, melt) {
-    const seed = Math.sin(column * 127.1 + row * 311.7) * 43758.5453;
-    const random = seed - Math.floor(seed);
-    const drift = Math.sin(time / 1200 + row * .23 + column * .13);
-    const idle = reduced.matches ? 0 : .018 * (1 + drift) * Math.pow(y / height, 2);
+    const fold = Number(section.dataset.fold || 0);
     const distance = Math.hypot(x - pointer.x, y - pointer.y);
-    const push = reduced.matches ? 0 : Math.max(0, 1 - distance / 100) * 25;
+    const push = reduced.matches ? 0 : Math.max(0, 1 - distance / 80) * 6 * (1 - fold);
     const direction = Math.atan2(y - pointer.y, x - pointer.x);
+    // Adjacent samples move together, keeping the head and shoulders connected.
+    const flow = Math.sin(row * .11 + column * .04);
     return [
-      x + (random - .5) * width * (melt * .65 + idle) + Math.cos(direction) * push,
-      y + (random * .6 + y / height * .4) * height * melt * .32 + drift * idle * height + Math.sin(direction) * push
+      x - (.6 + .4 * flow) * width * melt * .08 + Math.cos(direction) * push,
+      y + (y / height) ** 2 * height * melt * .09 + Math.sin(direction) * push
     ];
   }
 
@@ -196,14 +195,13 @@ if (canvas && section) {
         if (alpha < .035) continue;
         const luminance = pixels[index] * .2126 + pixels[index + 1] * .7152 + pixels[index + 2] * .0722;
         const normalized = Math.min(1, Math.max(luminance / 185, alpha * .34));
-        const band = Math.pow(Math.max(0, Math.sin(row * .68)), 8);
-        const level = Math.min(1, normalized * (.72 + band * .9));
+        const level = Math.min(1, normalized * .9);
         const leftAlpha = column ? pixels[index - 1] / 255 : alpha;
         const aboveAlpha = row ? pixels[index - columns * 4 + 3] / 255 : alpha;
         const edge = Math.max(Math.abs(alpha - leftAlpha), Math.abs(alpha - aboveAlpha)) * 255;
         const homeX = (column + .5) * width / columns;
         const homeY = (row + .5) * height / rows;
-        const [x, y] = displace(homeX, homeY, column, row, width, height, time, melt);
+        const [x, y] = displace(homeX, homeY, column, row, width, height, time, melt * Math.min(1, edge / 100));
         const inkAlpha = (.38 + level * .6) * alpha;
         context.strokeStyle = `rgba(6,7,7,${inkAlpha})`;
         context.fillStyle = `rgba(6,7,7,${inkAlpha})`;
