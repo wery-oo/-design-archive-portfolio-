@@ -22,22 +22,38 @@
 .archive-object.phone img{filter:hue-rotate(42deg) saturate(1.15)}
 .archive-object.phone:hover img,.archive-object.phone:focus-visible img,.archive-object.phone.is-selected img{filter:hue-rotate(42deg) saturate(1.3) contrast(1.04)}
 .archive-object.notebook:hover img,.archive-object.notebook:focus-visible img,.archive-object.notebook.is-selected img{filter:hue-rotate(118deg) saturate(1.95) contrast(1.08)}
-.object-measure{position:absolute;inset:0;border:1px solid #0bbcff;opacity:0;clip-path:inset(50%);transition:opacity .25s,clip-path .5s cubic-bezier(.2,.75,.2,1)}
-.object-measure::before{content:'';position:absolute;left:12%;right:12%;top:0;bottom:0;border-inline:1px dotted #7fddff}
-.object-measure::after{content:'';position:absolute;top:12%;bottom:16%;left:0;right:0;border-block:1px dotted #7fddff}
+.archive-object{--scan-color:#0bbcff}
+.archive-object.notebook{--scan-color:#ff2fa2}.archive-object.badge{--scan-color:#19e873}.archive-object.muzzle{--scan-color:#ff7a18}.archive-object.phone{--scan-color:#7657ff}.archive-object.powerbank{--scan-color:#ff2f92}
+.object-measure{position:absolute;inset:0;border:1px solid var(--scan-color);opacity:0;transform:translateY(4px);transition:opacity .25s,transform .5s cubic-bezier(.2,.75,.2,1)}
+.object-measure::before{content:'';position:absolute;left:12%;right:12%;top:0;bottom:0;border-inline:1px dotted var(--scan-color)}
+.object-measure::after{content:'';position:absolute;top:12%;bottom:16%;left:0;right:0;border-block:1px dotted var(--scan-color)}
 .object-caption{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;align-items:start;text-align:left;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .4s}
 .object-caption>span,.object-caption strong{display:block;width:max-content;max-width:100%;padding:2px 4px;background:#080b0c;color:#fff;font:600 10px/1.1 Arial,sans-serif;letter-spacing:-.035em}
 .object-caption small{max-height:0;opacity:0;margin-top:6px;font:500 9px/1.2 var(--mono);transition:opacity .3s,max-height .3s}
-.archive-object:hover .object-measure,.archive-object:focus-visible .object-measure,.archive-object.is-selected .object-measure{opacity:1;clip-path:inset(0)}
-.archive-object:hover .object-caption,.archive-object:focus-visible .object-caption,.archive-object.is-selected .object-caption{opacity:1;transform:translateY(0)}
-.archive-object:hover img,.archive-object:focus-visible img,.archive-object.is-selected img{transform:translateY(-8px) rotate(-2deg) scale(1.035);filter:saturate(1.13) contrast(1.04)}
+.archive-object:hover .object-measure,.archive-object:focus-visible .object-measure,.archive-object.is-selected .object-measure{opacity:1;transform:translateY(-6px)}
+.archive-object:hover .object-caption,.archive-object:focus-visible .object-caption,.archive-object.is-selected .object-caption{opacity:1;transform:translateY(-6px)}
+.archive-object:hover img,.archive-object:focus-visible img,.archive-object.is-selected img{transform:translateY(-6px);filter:saturate(1.13) contrast(1.04)}
 .archive-object.is-selected .object-caption small{opacity:1;max-height:24px}
-.archive-object:focus-visible{outline:1px solid #00a6ce;outline-offset:8px}
+.archive-object:focus-visible{outline:1px solid var(--scan-color);outline-offset:8px}
 .object-scroll-meter{height:1px;background:#cfd6d7;width:32vw;position:relative;overflow:hidden}
 .object-scroll-meter i{position:absolute;height:1px;width:20%;background:#111;left:0;top:0}
+/* The specimen, measuring frame and name rise on the same short curve. */
+.bag-object{transition:translate .5s cubic-bezier(.2,.75,.2,1)}
+.bag-object.is-tracked:not(.is-dragging){translate:0 -6px}
+.monitor-box > .scan-name{position:absolute;left:0;bottom:3px;max-width:calc(100% - 4px);font:600 9px/1.1 Arial,sans-serif}
+.scan-name,.object-caption strong.scan-name{display:block;width:max-content;max-width:100%;overflow:hidden;white-space:nowrap;background:#080b0c;color:#fff;padding:2px 4px}
+.object-caption{bottom:3px;max-width:100%}
+@media(prefers-reduced-motion:reduce){
+  .bag-object,.object-measure,.object-caption,.archive-object img,.monitor-box{transition:none!important}
+}
 @media(max-width:700px){.object-archive-head{font-size:16px}.object-archive-meta{top:95px;font-size:7px}.object-rail{top:140px;bottom:100px}.object-rail-track{gap:16vw;padding-right:18vw}.archive-object{width:68vw;min-width:0;height:78%}.object-bag-echo{width:16vw}.object-archive-foot{gap:12px;font-size:7px}}
 
 /* Inline chapter: vertical document travel drives the existing horizontal archive. */
+.gsap-lift{--object-lift:0px;translate:0 var(--object-lift)!important;transition-property:opacity,filter!important}
+.monitor-box.gsap-lift,.archive-object :is(img,.object-measure,.object-caption).gsap-lift{transform:none!important}
+.bag-object.is-dragging.gsap-lift{translate:0 0!important}
+@media(prefers-reduced-motion:reduce){.gsap-lift{translate:0 0!important}}
+
 .object-archive.object-archive-chapter{position:relative;inset:auto;width:100%;max-width:none;height:310svh;max-height:none;margin:-100svh 0 0;padding:0;overflow:visible;background:transparent}
 .object-archive-sticky{position:sticky;top:0;width:100%;height:100svh;overflow:hidden;background:#fff;isolation:isolate}
 .object-archive-chapter .object-archive-close{color:inherit;text-decoration:none}
@@ -45,7 +61,8 @@
 .object-archive-chapter .object-rail.is-dragging{cursor:grabbing}
 .object-archive-chapter .object-archive-sticky{visibility:hidden;pointer-events:none}
 .object-archive-chapter.is-portal-visible .object-archive-sticky{visibility:visible;pointer-events:auto}
-.object-archive-chapter.is-portal-preview .object-archive-sticky{position:fixed;inset:0;z-index:20}
+.object-archive-chapter.is-portal-preview .object-archive-sticky{position:fixed;inset:0;z-index:20;visibility:visible;pointer-events:none;opacity:var(--portal-arrival,0);transform:scale(calc(1.06 - var(--portal-arrival,0) * .06));transform-origin:28% 55%}
+.object-archive-chapter.is-portal-visible .object-archive-sticky{opacity:1;transform:none}
 .object-archive-chapter .archive-object{opacity:1;transform:none;transition:none}
 @media(max-width:700px){.object-archive.object-archive-chapter{height:280svh}}
 

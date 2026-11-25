@@ -174,13 +174,38 @@ function paintBody(body) {
 }
 
 function selectBody(body) {
+  const changed = selectedBody !== body;
+  objects.forEach(object => window.animateObjectLift?.(object, object === body.el));
+  window.animateObjectLift?.(monitorBox, true);
+  objects.forEach(object => object.classList.toggle('is-tracked', object === body.el));
   selectedBody = body;
   monitorBox.dataset.label = body.el.dataset.label;
+  if (!monitorBox.querySelector('.scan-name')) {
+    const name = document.createElement('span');
+    name.className = 'scan-name';
+    monitorBox.append(name);
+  }
+  const name = monitorBox.querySelector('.scan-name');
+  if (changed) window.decodeObjectName(name, body.el.dataset.label);
+  const scanColors = {
+    'object-notebook': '#ff2fa2',
+    'object-id': '#19e873',
+    'object-muzzle': '#ff7a18',
+    'object-phone': '#7657ff',
+    'object-powerbank': '#ff2f92',
+  };
+  const colorClass = Object.keys(scanColors).find((className) => body.el.classList.contains(className));
+  monitorBox.style.setProperty('--scan-color', scanColors[colorClass] || '#0bbcff');
   monitorBox.classList.add('is-visible');
   updateMonitor();
 }
 
 function clearSelection() {
+  objects.forEach(object => window.animateObjectLift?.(object, false));
+  window.animateObjectLift?.(monitorBox, false);
+  const name = monitorBox.querySelector('.scan-name');
+  if (name && selectedBody) window.decodeObjectName(name, selectedBody.el.dataset.label, false);
+  objects.forEach(object => object.classList.remove('is-tracked'));
   selectedBody = null;
   monitorBox.classList.remove('is-visible');
 }
@@ -403,10 +428,18 @@ function releaseBody(body, pointerId) {
   body.el.classList.remove('is-dragging');
   if (body.el.hasPointerCapture(pointerId)) body.el.releasePointerCapture(pointerId);
   draggedBody = null;
+  requestAnimationFrame(() => {
+    if (!body.el.matches(':hover, :focus-visible')) clearSelection();
+  });
 }
 
 function bindBodyInteractions(body) {
   const { el } = body;
+
+  el.addEventListener('pointerenter', () => selectBody(body));
+  el.addEventListener('pointerleave', () => {
+    if (!body.dragging && selectedBody === body) clearSelection();
+  });
 
   el.addEventListener('pointerdown', (event) => {
     const bounds = composition.getBoundingClientRect();
@@ -445,6 +478,9 @@ function bindBodyInteractions(body) {
   el.addEventListener('pointerup', (event) => releaseBody(body, event.pointerId));
   el.addEventListener('pointercancel', (event) => releaseBody(body, event.pointerId));
   el.addEventListener('focus', () => selectBody(body));
+  el.addEventListener('blur', () => {
+    if (!body.dragging && selectedBody === body) clearSelection();
+  });
   el.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       selectBody(body);

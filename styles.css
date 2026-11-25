@@ -333,41 +333,41 @@ h1 {
 .object-phone { left:59%; top:68%; width:9.5%; --r:17deg; filter:hue-rotate(42deg) saturate(1.15); }
 .object-powerbank { left:52%; top:70%; width:6%; --r:-7deg; }
 .monitor-box {
+  --scan-color:#0bbcff;
   position:absolute;
   z-index:8;
-  display:none;
-  border:1px solid #ff594d;
+  display:block;
+  border:1px solid var(--scan-color);
   pointer-events:none;
   background:
-    linear-gradient(#ff594d,#ff594d) left top/12px 2px no-repeat,
-    linear-gradient(#ff594d,#ff594d) left top/2px 12px no-repeat,
-    linear-gradient(#ff594d,#ff594d) right top/12px 2px no-repeat,
-    linear-gradient(#ff594d,#ff594d) right top/2px 12px no-repeat,
-    linear-gradient(#ff594d,#ff594d) left bottom/12px 2px no-repeat,
-    linear-gradient(#ff594d,#ff594d) left bottom/2px 12px no-repeat,
-    linear-gradient(#ff594d,#ff594d) right bottom/12px 2px no-repeat,
-    linear-gradient(#ff594d,#ff594d) right bottom/2px 12px no-repeat;
-  box-shadow:0 0 0 1px rgba(255,255,255,.48) inset;
+    repeating-linear-gradient(to bottom,var(--scan-color) 0 2px,transparent 2px 5px) 12% 0/1px 100% no-repeat,
+    repeating-linear-gradient(to bottom,var(--scan-color) 0 2px,transparent 2px 5px) 88% 0/1px 100% no-repeat,
+    repeating-linear-gradient(to right,var(--scan-color) 0 2px,transparent 2px 5px) 0 12%/100% 1px no-repeat,
+    repeating-linear-gradient(to right,var(--scan-color) 0 2px,transparent 2px 5px) 0 84%/100% 1px no-repeat;
+  opacity:0;
+  transform:translateY(4px);
+  transform-origin:center;
+  transition:opacity .2s ease,transform .42s cubic-bezier(.2,.75,.2,1);
 }
-.monitor-box.is-visible { display:block; }
+.monitor-box.is-visible { opacity:1;transform:translateY(-6px); }
 .monitor-box::before {
-  content:attr(data-label);
+  content:none;
   position:absolute;
   left:-1px;
-  bottom:calc(100% + 5px);
+  bottom:calc(100% + 6px);
   width:max-content;
-  padding:4px 6px;
-  background:#ff594d;
+  padding:3px 5px;
+  background:#080b0c;
   color:white;
-  font:500 8px/1 var(--mono);
-  letter-spacing:.04em;
+  font:600 9px/1.1 Arial,sans-serif;
+  letter-spacing:-.02em;
 }
 .monitor-box::after {
   content:attr(data-meta);
   position:absolute;
   right:0;
   top:calc(100% + 4px);
-  color:#d9362c;
+  color:var(--scan-color);
   font:500 7px/1 var(--mono);
   letter-spacing:.04em;
   white-space:nowrap;

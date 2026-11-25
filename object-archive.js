@@ -1,10 +1,61 @@
 (() => {
+  window.animateObjectLift = (element, active) => {
+    if (!window.gsap) return;
+    element.classList.add('gsap-lift');
+    gsap.to(element, {
+      '--object-lift': active ? '-6px' : '0px',
+      duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : active ? .48 : .38,
+      ease: active ? 'power3.out' : 'power2.out', overwrite: true
+    });
+  };
+  const nameTimers = new WeakMap();
+  window.decodeObjectName = (element, label, animate = true) => {
+    clearInterval(nameTimers.get(element));
+    element.textContent = label;
+    if (!animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const characters = Array.from(label);
+    const symbols = 'Xx+=-';
+    let frame = 0;
+    const paint = () => {
+      const revealed = Math.floor(characters.length * frame / 11);
+      element.textContent = characters.map((character, index) =>
+        index < revealed || /[\s/—]/.test(character) ? character : symbols[(frame + index * 3) % symbols.length]
+      ).join('');
+      if (frame++ >= 11) {
+        clearInterval(nameTimers.get(element));
+        element.textContent = label;
+      }
+    };
+    nameTimers.set(element, setInterval(paint, 38));
+    paint();
+  };
   const section = document.querySelector('.object-archive-chapter');
   if (!section) return;
   const rail = section.querySelector('.object-rail');
   const meter = section.querySelector('.object-scroll-meter i');
   const cards = [...section.querySelectorAll('.archive-object')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  cards.forEach(card => {
+    const lift = active => {
+      card.querySelectorAll('img,.object-measure,.object-caption').forEach(element => window.animateObjectLift(element, active));
+    };
+    card.addEventListener('pointerenter', () => lift(true));
+    card.addEventListener('pointerleave', () => lift(card.matches(':focus-visible') || card.classList.contains('is-selected')));
+    card.addEventListener('focus', () => lift(true));
+    card.addEventListener('blur', () => lift(card.matches(':hover') || card.classList.contains('is-selected')));
+    card.addEventListener('click', () => requestAnimationFrame(() => lift(card.classList.contains('is-selected') || card.matches(':hover,:focus-visible'))));
+    const title = card.querySelector('.object-caption strong');
+    if (!title) return;
+    const label = title.textContent;
+    title.classList.add('scan-name');
+    title.setAttribute('aria-label', label);
+    const decode = () => window.decodeObjectName(title, label);
+    const restore = () => window.decodeObjectName(title, label, false);
+    card.addEventListener('pointerenter', decode);
+    card.addEventListener('focus', decode);
+    card.addEventListener('pointerleave', restore);
+    card.addEventListener('blur', restore);
+  });
   let target = 0;
   let animation = 0;
   let pointer = null;

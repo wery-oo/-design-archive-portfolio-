@@ -36,7 +36,7 @@ body, body :where(*):not(:where(.ascii-title, .work-symbol-copy, .work-symbol-ti
     .archive-contact-ticket p, .archive-contact-ticket dl) {
   border-color: var(--line);
 }
-.object-measure { border-color: var(--scan-blue); }
+.object-measure { border-color: var(--scan-color, var(--scan-blue)); }
 .object-archive-head > span { display: none; } /* The fixed header carries the brand. */
 .object-archive-head { top: 68px; justify-content: flex-end; }
 :is(.scan-receipt, .archive-contact-ticket, .object-archive-meta, .object-archive-foot,
